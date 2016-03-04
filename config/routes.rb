@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   delete '/doses/:id', to: 'doses#destroy', as: 'delete_dose'
 
-
+  root 'cocktails#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
