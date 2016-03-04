@@ -1,10 +1,15 @@
-<h1>All cocktails:</h1>
-<% @cocktails.each do |cocktail| %>
-<ul>
-  <li>
-    <%= link_to cocktail.name, cocktail_path(cocktail) %>
-  </li>
-</ul>
-<% end %>
+<div class:"container", style:"align-center">
+  <h1>All cocktails:</h1>
+  <% @cocktails.each do |cocktail| %>
+  <ul>
+    <li>
+      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    </li>
+  </ul>
+  <% end %>
 
-<%= link_to "Add a new cocktail", new_cocktail_path %>
+  <p><%= cl_image_tag("cocktails_wqebh1.png",
+    width: 400, height: 300, crop: :fill) %></p>
+
+    <p><%= link_to "Add a new cocktail", new_cocktail_path, {class:"btn btn-primary"} %></p>
+  </div>

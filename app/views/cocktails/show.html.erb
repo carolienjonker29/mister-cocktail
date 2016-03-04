@@ -1,6 +1,24 @@
-<%= @cocktail.name %>
+<h1><%= @cocktail.name %>
+</h1>
 
-<%= link_to "Delete", cocktail_path(@cocktail),
-method: :delete %>
+<p>
+  <% @cocktail.doses.each do |dose| %>
+  <%= dose.description %>
+  <%= dose.ingredient.name %>
+  <%= link_to "Delete", delete_dose_path(dose), method: :delete %>
+  <% end %>
+</p>
 
-<%= link_to "Go back", cocktails_path %>
+<p><%= image_tag @cocktail.photo.url(:bright_face) %></p>
+
+<p><%= link_to "Add an extra ingredient", new_cocktail_dose_path(@cocktail), {class:"btn btn-primary"} %></p>
+
+<p><%= link_to "Edit", edit_cocktail_path(@cocktail), {class:"btn btn-primary"} %></p>
+
+<p>
+  <%= link_to("Delete", cocktail_path(@cocktail),
+  { method: :delete, class:"btn btn-primary" }) %>
+</p>
+
+<p><%= link_to("Go back", cocktails_path, {class:"btn btn-primary"}) %></p>
+
